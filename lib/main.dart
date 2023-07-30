@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'constants.dart';
 
 void main() {
@@ -39,8 +41,27 @@ class HomeScreen extends StatelessWidget {
                 0xFFF5CeB8,
               ),
               image: DecorationImage(
+                  alignment: Alignment.centerLeft,
                   image: AssetImage("assets/images/undraw_pilates_gpdb.png"))),
         ),
+        SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                  alignment: Alignment.center,
+                  height: 52,
+                  width: 52,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFF2BEA1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: SvgPicture.asset("assets/icons/menu.svg")),
+            )
+          ]),
+        ))
       ]),
     );
   }
