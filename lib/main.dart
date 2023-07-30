@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'constants.dart';
 
 void main() {
@@ -51,14 +49,36 @@ class HomeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: Container(
-                  alignment: Alignment.center,
-                  height: 52,
-                  width: 52,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF2BEA1),
-                    shape: BoxShape.circle,
-                  ),
-                  child: SvgPicture.asset("assets/icons/menu.svg")),
+                alignment: Alignment.center,
+                height: 52,
+                width: 52,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF2BEA1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.menu,
+                  size: 25,
+                  color: kBackgroundColor,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right:70),
+              child: Text(
+                "Good Morning \nUsers", textAlign: TextAlign.start,
+                style: Theme.of(context)
+                    .textTheme
+                    .displaySmall!
+                    .copyWith(fontWeight: FontWeight.w900),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(30)),
+              child: const TextField(decoration: InputDecoration(hintText: 'Search Here',border: InputBorder.none,icon: Icon(Icons.search,color: Colors.black,)),),
             )
           ]),
         ))
