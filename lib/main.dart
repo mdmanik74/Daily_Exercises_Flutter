@@ -1,3 +1,4 @@
+import 'package:daily_exercises/category_page.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -31,6 +32,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal:10, vertical: 10),
+        color: Colors.transparent,
+        child: BottomNavigationBar(
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.black,
+          selectedFontSize: 30,
+          items: const [BottomNavigationBarItem(icon: Icon(Icons.calendar_today,size: 25,color: Colors.red,), label: "Today",),
+            BottomNavigationBarItem(icon: Icon(Icons.toggle_off,size: 25,color: Colors.red,), label: "Exercises"),
+            BottomNavigationBarItem(icon: Icon(Icons.settings,size: 25,color: Colors.red,), label: "Settings"),
+
+          ],
+        ),
+      ),
       body: Stack(children: [
         Container(
           height: size.height * .45,
@@ -64,9 +79,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right:70),
+              padding: const EdgeInsets.only(right: 70),
               child: Text(
-                "Good Morning \nUsers", textAlign: TextAlign.start,
+                "Good Morning \nUsers",
+                textAlign: TextAlign.start,
                 style: Theme.of(context)
                     .textTheme
                     .displaySmall!
@@ -75,11 +91,50 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 30),
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(30)),
-              child: const TextField(decoration: InputDecoration(hintText: 'Search Here',border: InputBorder.none,icon: Icon(Icons.search,color: Colors.black,)),),
-            )
+              child: const TextField(
+                decoration: InputDecoration(
+                    hintText: 'Search Here',
+                    border: InputBorder.none,
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    )),
+              ),
+            ),
+            Expanded(
+                child: GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: .85,
+              children: [
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe01.png",
+                ),
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe02.png",
+                ),
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe01.png",
+                ),
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe02.png",
+                ),
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe01.png",
+                ),
+                CategoyPage(
+                  title: "Diet \n Recommendation",
+                  img: "assets/images/exe02.png",
+                ),
+              ],
+            )),
           ]),
         ))
       ]),
