@@ -1,3 +1,4 @@
+import 'package:daily_exercises/color_page.dart';
 import 'package:flutter/material.dart';
 
 import 'on_boarding/on_boarding_page.dart';
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
+      title: 'Fitness 3 in 1',
+      theme: ThemeData(primaryColor: TColor.primaryColor1,fontFamily: 'Poppins'),
       home: const OnboardView(),
     );
   }
