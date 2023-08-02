@@ -1,16 +1,14 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
 import 'package:flutter/material.dart';
 
 import '../color_page.dart';
 
-class OnboardView extends StatefulWidget {
-  const OnboardView({super.key});
+class OnboardView extends StatelessWidget {
+  final Map OnBoardObj;
+  OnboardView({super.key, required this.OnBoardObj});
 
-  @override
-  State<OnboardView> createState() => _OnboardViewState();
-}
 
-class _OnboardViewState extends State<OnboardView> {
-  PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class _OnboardViewState extends State<OnboardView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
-                    "assets/img/on_1.png",
+                    OnBoardObj["image"].toString(),
                     width: media.width,
                     fit: BoxFit.fitWidth,
                   ),
@@ -38,7 +36,7 @@ class _OnboardViewState extends State<OnboardView> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      'Track Your Goal',
+                      OnBoardObj["title"].toString(),
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
@@ -48,7 +46,7 @@ class _OnboardViewState extends State<OnboardView> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
+                      OnBoardObj["subtitle"].toString(),
                       style: TextStyle(
                           fontSize: 14,
 
