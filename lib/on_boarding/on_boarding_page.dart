@@ -6,7 +6,7 @@ import '../color_page.dart';
 
 class OnboardView extends StatelessWidget {
   final Map OnBoardObj;
-  OnboardView({super.key, required this.OnBoardObj});
+  const OnboardView({super.key, required this.OnBoardObj});
 
 
 

@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unused_local_variable
 
 import 'package:daily_exercises/on_boarding/on_boarding_page.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +13,10 @@ class OnboardCommon extends StatefulWidget {
 }
 
 class _OnboardCommonState extends State<OnboardCommon> {
-  final int _currentIndex = 0;
+  final int currentIndex = 0;
   final PageController _pageController = PageController();
 
   List pageList = [
-
     {
       "title": "Track Your Goal",
       "subtitle":
@@ -45,19 +44,35 @@ class _OnboardCommonState extends State<OnboardCommon> {
 
   @override
   Widget build(BuildContext context) {
-
+    Size media;
+    media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: TColor.white,
       body: Stack(
+        alignment: Alignment.bottomRight,
         children: [
           PageView.builder(
               controller: _pageController,
               itemCount: 3,
-              itemBuilder: (BuildContext context, int _currentIndex) {
-                var OnBoardObj =pageList[_currentIndex] as Map? ?? {};
+              itemBuilder: (BuildContext context, int currentIndex) {
+                var OnBoardObj = pageList[currentIndex] as Map? ?? {};
                 return OnboardView(OnBoardObj: OnBoardObj);
-
-              })
+              }),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+                color: TColor.primaryColor1,
+                borderRadius: BorderRadius.circular(35)),
+            child: IconButton(
+              icon: Icon(
+                Icons.navigate_next,
+                color: TColor.white,
+              ),
+              onPressed: () {},
+            ),
+          )
         ],
       ),
     );
