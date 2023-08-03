@@ -80,7 +80,14 @@ _onChanges(int index){
                 Icons.navigate_next,
                 color: TColor.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                if(pageList.length <=_currentIndex){
+
+                }else{
+                  _currentIndex=_currentIndex+1;
+                  controller.jumpToPage(_currentIndex);
+                }
+              },
             ),
           )
         ],
