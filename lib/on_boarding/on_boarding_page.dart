@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import '../color_page.dart';
 
 class OnboardView extends StatelessWidget {
-  final Map OnBoardObj;
-  const OnboardView({super.key, required this.OnBoardObj});
 
+final String image;
+final String title;
+  final String subtitle;
 
+const OnboardView({super.key, required this.title, required this.image,required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,8 @@ class OnboardView extends StatelessWidget {
       backgroundColor: TColor.white,
       body: Stack(
         children: [
-          PageView.builder(itemBuilder: (context, index) {
-            return SizedBox(
+
+             SizedBox(
               width: media.width,
               height: media.height,
               child: Column(
@@ -26,7 +28,7 @@ class OnboardView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
-                    OnBoardObj["image"].toString(),
+                    image,
                     width: media.width,
                     fit: BoxFit.fitWidth,
                   ),
@@ -36,7 +38,7 @@ class OnboardView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      OnBoardObj["title"].toString(),
+                      title,
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
@@ -46,7 +48,7 @@ class OnboardView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      OnBoardObj["subtitle"].toString(),
+                     subtitle,
                       style: TextStyle(
                           fontSize: 14,
 
@@ -55,8 +57,8 @@ class OnboardView extends StatelessWidget {
                   ),
                 ],
               ),
-            );
-          })
+            ),
+
         ],
       ),
     );
