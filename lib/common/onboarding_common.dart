@@ -68,6 +68,19 @@ _onChanges(int index){
               itemBuilder: (BuildContext context, int index) {
                 return pageList[index];
               }),
+          SizedBox(width: 120,height: 110,child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                width: 70, height: 70,child: CircularProgressIndicator(
+                color: Colors.red,
+                value: _currentIndex/3,
+                strokeWidth: 4,
+
+              ),
+              )
+            ],
+          ),),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
             width: 60,
@@ -81,7 +94,7 @@ _onChanges(int index){
                 color: TColor.white,
               ),
               onPressed: () {
-                if(pageList.length <=_currentIndex){
+                if(pageList.length <=_currentIndex -1) {
 
                 }else{
                   _currentIndex=_currentIndex+1;
